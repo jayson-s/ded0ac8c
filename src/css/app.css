@@ -1,3 +1,11 @@
+/* Global Reset & Full Viewport Fill */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Center the App */
 #app {
   position: absolute;
   display: flex;
@@ -7,19 +15,163 @@
   top: 0;
   right: 0;
   bottom: 0;
+  background: #1c2b3c;
 }
 
+/* Mobile Device Frame */
 #app .container {
   width: 376px;
   height: 666px;
-  z-index: 100;
-
   background: white;
   border-radius: 3px;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .9);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  z-index: 100;
 }
 
+/* Scrollable Main Content Area */
 #app .container-view {
-  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  padding-bottom: 60px; /* Leave space for bottom tabs */
+  background-color: white;
+  position: relative;
+  box-sizing: border-box;
+  z-index: 0;
 }
 
+/* Bottom Tab Navigation */
+.bottom-tabs {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #fff;
+  padding: 10px 0;
+  border-top: 1px solid #ddd;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.bottom-tab {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  text-align: center;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.bottom-tab:hover {
+  background-color: #f0f0f0;
+}
+
+.bottom-tab.active {
+  background-color: #2AC420;
+  color: white;
+}
+
+.bottom-tab .badge {
+  background-color: #f44;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}
+
+/* Call Card Design */
+.call-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 12px;
+  transition: box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.call-card:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.call-card .call-header {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.call-card .call-meta {
+  font-size: 12px;
+  color: #666;
+}
+
+.call-card button {
+  margin-top: 8px;
+  background-color: #2AC420;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.call-card button:hover {
+  background-color: #249c1c;
+}
+
+/* Sticky Archive Header */
+.archive-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  padding: 8px 0;
+  z-index: 5;
+}
+
+.archive-controls button {
+  background-color: #eee;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.archive-controls button:hover {
+  background-color: #ddd;
+}
+
+/* Modal */
+.call-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  width: 90%;
+  max-width: 360px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+}

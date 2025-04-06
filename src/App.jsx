@@ -1,17 +1,33 @@
+// src/App.jsx
 import React from 'react';
-import ReactDOM from 'react-dom';
-
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import Header from './Header.jsx';
+import Inbox from './pages/Inbox.jsx';
+import Archived from './pages/Archived.jsx';
+import DialPad from './pages/DialPad.jsx';
+import BottomTabs from './components/BottomTabs.jsx';
 
 const App = () => {
   return (
-    <div className='container'>
-      <Header/>
-      <div className="container-view">Some activities should be here</div>
-    </div>
+    <Router>
+      <div id="app">
+        <div className="container">
+          <Header />
+          <div className="container-view">
+            <Routes>
+              <Route path="/" element={<Navigate to="/inbox" />} />
+              <Route path="/inbox" element={<Inbox />} />
+              <Route path="/archived" element={<Archived />} />
+              <Route path="/dialpad" element={<DialPad />} />
+            </Routes>
+          </div>
+          <BottomTabs />
+        </div>
+        <Toaster position="top-center" />
+      </div>
+    </Router>
   );
 };
-
-ReactDOM.render(<App/>, document.getElementById('app'));
 
 export default App;

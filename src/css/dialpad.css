@@ -1,0 +1,76 @@
+.dialpad-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px;
+  }
+  
+  .dialpad-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  .dialpad-display input {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  
+  .dialpad-display .backspace {
+    font-size: 18px;
+    padding: 6px 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .dialpad-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  
+  .dialpad-key {
+    width: 80px;
+    height: 80px;
+    font-size: 24px;
+    font-weight: 500;
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .dialpad-key:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .call-button {
+    background-color: #2AC420;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 32px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .call-button:hover {
+    background-color: #26ab1d;
+  }
